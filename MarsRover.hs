@@ -5,20 +5,20 @@ import Parser
 
 -- Calculate all Rover's new position and heading based on Input
 exploreAll :: Input -> [Rover]
-exploreAll (pos, rs) = map (uncurry explore) rs
+exploreAll (pos, rs) = map (\r -> explore pos (fst r) (snd r)) rs  -- sure can be better
 
 -- Calculate Rover's new position and heading based on instructions
-explore :: Rover -> [Control] -> Rover
-explore = foldl step
+explore :: Position -> Rover -> [Control] -> Rover
+explore pos = foldl (step pos)
 
 -- Calculate Rover's new position and heading based on one instruction
-step :: Rover -> Control -> Rover
-step (pos, cp) M = (move pos cp, cp)
-step (pos, cp) c = (pos, spin cp c)
+step :: Position -> Rover -> Control -> Rover
+step max (pos, cp) M = (move max pos cp, cp)
+step _   (pos, cp) c = (pos, spin cp c)
 
 -- Calculate Rover's new position based on one move forward
-move :: Position -> CardinalPoint -> Position
-move (x, y) cp = (x2, y2)
+move :: Position -> Position -> CardinalPoint -> Position
+move (mx, my) (x, y) cp = (x2, y2)
   where (x', y') = offset cp
         x1 = x + x'
         y1 = y + y'

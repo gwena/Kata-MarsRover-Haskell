@@ -17,30 +17,30 @@ main = hspec $ do
 
   describe "move Rover to correct position" $ do
     it "add 1 on the y coordinate when going North" $ do
-      move (2,2) N `shouldBe` (2,3)
+      move (10,10) (2,2) N `shouldBe` (2,3)
 
     it "substract 1 on the x coordinate when going West" $ do
-      move (2,2) W `shouldBe` (1,2)
+      move (10,10) (2,2) W `shouldBe` (1,2)
 
   describe "keep Rover inside the plateau" $ do
     it "do not move further than bottom left" $ do
-      let actual = explore ((1,1), N) [M,L,M,M,M,M,L,L,M,M,M]
+      let actual = explore (10,10) ((1,1), N) [M,L,M,M,M,M,L,L,M,M,M]
       actual `shouldBe` ((3,2),E)
 
   describe "move or spin rover based on control command" $ do
     it "move North" $ do
-      step ((2,2), N) M `shouldBe` ((2,3), N)
+      step (10,10) ((2,2), N) M `shouldBe` ((2,3), N)
 
     it "spin West" $ do
-      step ((2,2), N) L `shouldBe` ((2,2), W)
+      step (10,10) ((2,2), N) L `shouldBe` ((2,2), W)
 
   describe "move and spin Rover to correct position following serie of instructions" $ do
     it "calculate Rover 1's new position and heading (spec example)" $ do
-      let actual = explore ((3,3), E) [M,M,R,M,M,R,M,R,R,M]
+      let actual = explore (10,10) ((3,3), E) [M,M,R,M,M,R,M,R,R,M]
       actual `shouldBe` ((5,1),E)
 
     it "calculate Rover 2's new position and heading (spec example)" $ do
-      let actual = explore ((1,2), N) [L,M,L,M,L,M,L,M,M]
+      let actual = explore (10,10) ((1,2), N) [L,M,L,M,L,M,L,M,M]
       actual `shouldBe` ((1,3),N)
 
   describe "end to end testing" $ do
