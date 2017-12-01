@@ -22,3 +22,10 @@ main = hspec $ do
     it "substract 1 on the x coordinate when going West" $ do
       move (2,2) W `shouldBe` (1,2)
 
+  describe "move or spin rover based on control command" $ do
+    it "move North" $ do
+      step ((2,2), N) M `shouldBe` ((2,3), N)
+
+    it "spin West" $ do
+      step ((2,2), N) L `shouldBe` ((2,2), W)
+
