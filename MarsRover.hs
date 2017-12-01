@@ -40,11 +40,15 @@ spin W L = S
 spin W R = N
 spin c M = c
 
+-- Show Rover based on Output requirement
+displayRover :: Rover -> String
+displayRover ((x, y), cp) = show x ++ " " ++ show y ++ " " ++ show cp
+
 -- Process an input string of rovers and instructions to output rovers' new
 -- positions and headings
 process :: String -> String
 process str = case parseInput str of
                 Left e -> "ERROR: " ++ e
-                Right r -> "Parsed"
+                Right r -> unlines $ map displayRover $ exploreAll r
 
 
