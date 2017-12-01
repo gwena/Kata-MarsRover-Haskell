@@ -37,3 +37,10 @@ main = hspec $ do
     it "Rover 2 (spec example)" $ do
       let actual = explore ((1,2), N) [L,M,L,M,L,M,L,M,M]
       actual `shouldBe` ((1,3),N)
+
+  describe "end to end testing" $ do
+    it "create output for 2 Rovers moved and spinned following instructions (spec example) " $ do
+      let test = "5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM\n"
+      process test `shouldBe` "1 3 N\n5 1 E\n"
+
+
