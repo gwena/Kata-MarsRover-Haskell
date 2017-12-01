@@ -8,16 +8,16 @@ exploreAll :: Input -> [Rover]
 exploreAll (pos, rs) = map (\r -> explore pos (fst r) (snd r)) rs  -- sure can be better
 
 -- Calculate Rover's new position and heading based on instructions
-explore :: Position -> Rover -> [Control] -> Rover
+explore :: UpperRight -> Rover -> [Control] -> Rover
 explore pos = foldl (step pos)
 
 -- Calculate Rover's new position and heading based on one instruction
-step :: Position -> Rover -> Control -> Rover
+step :: UpperRight -> Rover -> Control -> Rover
 step max (pos, cp) M = (move max pos cp, cp)
 step _   (pos, cp) c = (pos, spin cp c)
 
 -- Calculate Rover's new position based on one move forward
-move :: Position -> Position -> CardinalPoint -> Position
+move :: UpperRight -> Position -> CardinalPoint -> Position
 move (mx, my) (x, y) cp = (x2, y2)
   where (x', y') = offset cp
         x1 = x + x'
