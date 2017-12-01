@@ -6,3 +6,9 @@ To keep it simple in order to be more easily scrutinized:
 ## Dependencies
 * Parser: parsec, parsec-numbers
 * Test: hspec
+
+## Assumptions
+* Input can contain error, and error message should be displayed in that case
+* Rover cannot go outside the plateau (upper right, bottom left)
+* Rover will skip instruction(s) to move forward if reaching the limit of the platea
+* Rovers can be at the same location
