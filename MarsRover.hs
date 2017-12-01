@@ -29,6 +29,7 @@ spin S L = E
 spin S R = W
 spin W L = S
 spin W R = N
+spin c M = c
 
 process :: String -> String
 process str = case parseInput str of
