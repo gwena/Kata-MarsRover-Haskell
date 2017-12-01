@@ -27,6 +27,10 @@ main = hspec $ do
       let actual = explore (10,10) ((1,1), N) [M,L,M,M,M,M,L,L,M,M,M]
       actual `shouldBe` ((3,2),E)
 
+    it "do not move further than the plateau, upper right" $ do
+      let actual = explore (5,5) ((4,4), N) [M,M,M,M,M,M,L,M,M]
+      actual `shouldBe` ((2,5),W)
+
   describe "move or spin rover based on control command" $ do
     it "move North" $ do
       step (10,10) ((2,2), N) M `shouldBe` ((2,3), N)
