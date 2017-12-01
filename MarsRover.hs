@@ -3,6 +3,9 @@ module MarsRover where
 import MarsRoverTypes
 import Parser
 
+explore :: Rover -> [Control] -> Rover
+explore = foldl step
+
 step :: Rover -> Control -> Rover
 step (pos, cp) M = (move pos cp, cp)
 step (pos, cp) c = (pos, spin cp c)
