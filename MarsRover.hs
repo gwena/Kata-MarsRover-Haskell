@@ -18,8 +18,12 @@ step (pos, cp) c = (pos, spin cp c)
 
 -- Calculate Rover's new position based on one move forward
 move :: Position -> CardinalPoint -> Position
-move (x, y) cp = (x + x', y + y')
-   where (x', y') = offset cp
+move (x, y) cp = (x2, y2)
+  where (x', y') = offset cp
+        x1 = x + x'
+        y1 = y + y'
+        x2 = if x1 >= 0 then x1 else x
+        y2 = if y1 >= 0 then y1 else y
 
 -- Calculate the offset for x and y coordinates based on moving in a direction
 offset :: CardinalPoint -> (Int, Int)

@@ -15,12 +15,17 @@ main = hspec $ do
       let test = "5 5a\n1 giberish\n"
       process test `shouldStartWith` "ERROR: "
 
-  describe "move rover to correct position" $ do
+  describe "move Rover to correct position" $ do
     it "add 1 on the y coordinate when going North" $ do
       move (2,2) N `shouldBe` (2,3)
 
     it "substract 1 on the x coordinate when going West" $ do
       move (2,2) W `shouldBe` (1,2)
+
+  describe "keep Rover inside the plateau" $ do
+    it "do not move further than bottom left" $ do
+      let actual = explore ((1,1), N) [M,L,M,M,M,M,L,L,M,M,M]
+      actual `shouldBe` ((3,2),E)
 
   describe "move or spin rover based on control command" $ do
     it "move North" $ do
