@@ -30,11 +30,11 @@ main = hspec $ do
       step ((2,2), N) L `shouldBe` ((2,2), W)
 
   describe "move and spin Rover to correct position following serie of instructions" $ do
-    it "Rover 1 (spec example)" $ do
+    it "calculate Rover 1's new position and heading (spec example)" $ do
       let actual = explore ((3,3), E) [M,M,R,M,M,R,M,R,R,M]
       actual `shouldBe` ((5,1),E)
 
-    it "Rover 2 (spec example)" $ do
+    it "calculate Rover 2's new position and heading (spec example)" $ do
       let actual = explore ((1,2), N) [L,M,L,M,L,M,L,M,M]
       actual `shouldBe` ((1,3),N)
 
