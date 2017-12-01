@@ -3,6 +3,10 @@ module MarsRover where
 import MarsRoverTypes
 import Parser
 
+-- Calculate all Rover's new position and heading based on Input
+exploreAll :: Input -> [Rover]
+exploreAll (pos, rs) = map (uncurry explore) rs
+
 -- Calculate Rover's new position and heading based on instructions
 explore :: Rover -> [Control] -> Rover
 explore = foldl step
