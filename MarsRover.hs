@@ -45,11 +45,8 @@ spin c M = c
 displayRover :: Rover -> String
 displayRover ((x, y), cp) = show x ++ " " ++ show y ++ " " ++ show cp
 
--- Process an input string of rovers and instructions to output rovers' new
--- positions and headings
+-- Compute new rover's positions & headings based on instructions
 process :: String -> String
 process str = case parseInput str of
                 Left e -> "ERROR: " ++ e
                 Right r -> unlines $ map displayRover $ exploreAll r
-
-
