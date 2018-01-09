@@ -5,7 +5,7 @@ import Parser
 
 -- Calculate all Rover's new position and heading based on Input
 exploreAll :: Input -> [Rover]
-exploreAll (pos, rs) = map (\r -> explore pos (fst r) (snd r)) rs  -- sure can be better
+exploreAll (pos, rs) = map (\r -> explore pos (fst r) (snd r)) rs
 
 -- Calculate Rover's new position and heading based on instructions
 explore :: UpperRight -> Rover -> [Control] -> Rover
