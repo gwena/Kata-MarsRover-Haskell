@@ -1,8 +1,8 @@
 module MarsRover.Test where
 
+import Test.Hspec
 import MarsRover
 import MarsRoverTypes
-import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
@@ -51,5 +51,3 @@ main = hspec $ do
     it "create output for 2 Rovers moved and spinned following instructions (spec example) " $ do
       let test = "5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM\n"
       process test `shouldBe` "1 3 N\n5 1 E\n"
-
-
