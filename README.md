@@ -1,7 +1,7 @@
 # Mars-Rover Kata in Haskell
-To keep it simple and be more easily scrutinized:
-* all the files are in the root folder (as only 4 Haskell files)
-* no tool such as Stack was used to create a project structure (as by default Stack will create 19 files to start with)
+## Structure
+* Folder structure was kept to a basic one (just src and test)
+* No tool, such as Stack, was used to create a project structure (by default Stack will create 19 files to start with)
 
 ## Dependencies
 * Parser: parsec, parsec-numbers
