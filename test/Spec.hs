@@ -16,10 +16,10 @@ main = hspec $ do
       process test `shouldStartWith` "ERROR: "
 
   describe "move Rover to correct position" $ do
-    it "add 1 on the y coordinate when going North" $ do
+    it "add 1 on the y coordinate when going North" $
       move (10,10) (2,2) N `shouldBe` (2,3)
 
-    it "substract 1 on the x coordinate when going West" $ do
+    it "substract 1 on the x coordinate when going West" $
       move (10,10) (2,2) W `shouldBe` (1,2)
 
   describe "keep Rover inside the plateau" $ do
@@ -32,10 +32,10 @@ main = hspec $ do
       actual `shouldBe` ((2,5),W)
 
   describe "move or spin rover based on control command" $ do
-    it "move North" $ do
+    it "move North" $
       step (10,10) ((2,2), N) M `shouldBe` ((2,3), N)
 
-    it "spin West" $ do
+    it "spin West" $
       step (10,10) ((2,2), N) L `shouldBe` ((2,2), W)
 
   describe "move and spin Rover to correct position following serie of instructions" $ do
