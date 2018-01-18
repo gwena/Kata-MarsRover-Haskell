@@ -9,7 +9,7 @@ import Control.Applicative hiding ((<|>), many)
 -- Parse input string using a parser
 -- Return Right Input if correct format, else Left with error message
 parseInput :: String -> Either String Input
-parseInput str = case parse input ("") str of
+parseInput str = case parse input "" str of
                    Left e -> Left (show $ map messageString (errorMessages e))
                    Right result -> Right result
 
